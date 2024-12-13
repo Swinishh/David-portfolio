@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+
+    }
+
+    body {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 5px 10px 15px 5px gray;
+        border: 2px solid white;
+        border-radius: 10px;
+        padding: 50px;
+        margin: 30px;
+
+
+    }
+
+    .main input {
+        border-radius: 5px;
+        border: none;
+        border-bottom: 2px solid;
+
+        padding: 5px;
+    }
+
+    .output-item {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .output-buttons {
+        margin-left: 10px;
+
+        display: flex;
+        gap: 10px;
+    }
+
+    #Btn-save {
+        width: 30%;
+        background-color: rgb(109, 204, 109);
+        color: white;
+        font-weight: 600;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+    }
+
+    .edit-btn {
+        width: 60%;
+        background-color: rgb(109, 164, 204);
+        color: white;
+        font-weight: 600;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .delete-btn {
+        width: 60%;
+        background-color: rgb(204, 109, 109);
+        color: white;
+        font-weight: 600;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+    }
+</style>
+
+<body>
+    <div>
+        <div class="main">
+            <input type="text" id="I_name" placeholder="Enter your name:">
+            <input type="number" id="I_age" placeholder="Enter your age:">
+            <button id="Btn-save">Save</button>
+
+            <p>Saved Entries:</p>
+            <div id="output-container"></div>
+        </div>
+
+    </div>
+
+</body>
+<script>
+    const saveButton = document.getElementById('Btn-save');
+    const nameInput = document.getElementById('I_name');
+    const ageInput = document.getElementById('I_age');
+    const outputContainer = document.getElementById('output-container');
+
+    let editingItem = null; // Track the item being edited
+
+    saveButton.addEventListener('click', () => {
+        const name = nameInput.value.trim();
+        const age = ageInput.value.trim();
+
+        if (!name || !age) {
+            alert("Please enter both name and age!");
+            return;
+        }
+
+        // If editing an existing entry, update it
+        if (editingItem) {
+            editingItem.querySelector('.name').textContent = `Name: ${name}`;
+            editingItem.querySelector('.age').textContent = `Age: ${age}`;
+            editingItem.querySelector('.edit-btn').style.display = 'inline-block'; // Show the edit button again
+            editingItem = null; // Clear the editingItem after saving
+        } else {
+            // Create a new div to display the saved entry
+            const outputItem = document.createElement('div');
+            outputItem.classList.add('output-item');
+
+            // Add name, age, and edit button to the new item
+            outputItem.innerHTML = `
+                   <span class="name">Name: ${name}</span>
+                   <span>&nbsp;&nbsp;&nbsp;</span> <!-- Non-breaking spaces -->
+                  <span class="age">Age: ${age}</span>
+                  <div class="output-buttons">
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+                  </div>
+                   `;
+
+            // Append the new item to the output container
+            outputContainer.appendChild(outputItem);
+
+            // Add event listener for the edit button
+            const editButton = outputItem.querySelector('.edit-btn');
+            editButton.addEventListener('click', () => {
+                // Set the input fields to the values from the clicked item
+                nameInput.value = name;
+                ageInput.value = age;
+
+                // // Hide the edit button (for clarity)
+                // editButton.style.display = 'none';
+
+                // Mark this item as being edited
+                editingItem = outputItem;
+            });
+
+            // Add event listener for the delete button
+            const deleteButton = outputItem.querySelector('.delete-btn');
+            deleteButton.addEventListener('click', () => {
+                outputContainer.removeChild(outputItem); // Remove the item from the list
+            });
+        }
+
+        // Clear input fields after saving
+        nameInput.value = '';
+        ageInput.value = '';
+    });
+</script>
+
+</html>

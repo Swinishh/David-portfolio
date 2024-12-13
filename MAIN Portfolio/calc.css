@@ -1,0 +1,84 @@
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    background-color: #e0e0e0;
+    font-family: Arial, sans-serif;
+}
+
+div.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#h1 {
+    padding: 18px 5px 18px 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: rgb(69, 166, 199);
+    background-color: black;
+    box-shadow: 0 0 10px rgb(158, 206, 222), 
+                0 0 15px rgb(134, 138, 139), 
+                0 0 15px rgb(96, 96, 97);
+}
+
+
+#inputBox {
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    width: 90%;
+    text-align: right;
+}
+
+button {
+    width: 70px;
+    height: 60px;
+    margin:1px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+#equalsto{
+    background-color: #da7903;
+    width: 115px;
+    
+}
+
+
+
+button:hover {
+    background-color: #2f8e33;
+}
+
+#equalsto:hover {
+    background-color: #da7903;
+}
+
+button:active {
+    transform: scale(0.95);
+    background-color: #3e8e41;
+}
+
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

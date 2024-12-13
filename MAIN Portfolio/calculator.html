@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calc.css">
+</head>
+
+<body>
+    <div class="container">
+        <div><h1 id="h1">CALCULATOR</h1></div>
+        <input id="inputBox" type="text" value="" readonly>
+        <div class="button-row">
+            <button onclick="appendValue('.')">.</button>
+            <button onclick="appendValue('(')">(</button>
+            <button onclick="appendValue(')')">)</button>
+            <button onclick="appendValue('+')">+</button>           
+        </div>
+        <div class="button-row">
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('*')">*</button>
+        </div>
+        <div class="button-row">
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('/')">/</button>
+        </div>
+        <div class="button-row">
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('%')">%</button>
+        </div>
+        <div>
+            <button onclick="appendValue('0')">0</button>
+            <button type="button" onclick="clearInput()">AC</button>
+            <button type="button" onclick="backspace()">&#8592;</button>
+            <button id="equalsto" type="button" onclick="evaluateExpression()">=</button>
+        </div>
+    </div>
+
+   
+</body>
+<script>
+    const display = document.getElementById("inputBox");
+
+    // Append a value to the display
+    function appendValue(value) {
+        display.value += value;
+    }
+
+    // Clear the display
+    function clearInput() {
+        display.value = "";
+    }
+
+    // Calculate the result
+    function evaluateExpression() {
+        try {
+            display.value = eval(display.value);
+        } catch (error) {
+            display.value = "Error";
+        }
+    }
+
+    // Backspace function
+    function backspace() {
+        display.value = display.value.slice(0, -1);
+    }
+
+    // Map keyboard inputs to calculator functions
+    document.addEventListener('keydown', function (event) {
+        const key = event.key;
+
+        // Allow numeric and operator keys
+        if (!isNaN(key) || ['+', '-', '*', '/', '.', '(', ')', '%'].includes(key)) {
+            appendValue(key);
+        }
+
+        // Handle Backspace key
+        if (key === 'Backspace') {
+            backspace();
+        }
+
+        // Handle Enter key for evaluation
+        if (key === 'Enter') {
+            evaluateExpression();
+        }
+
+        // Handle Escape key for clearing the input
+        if (key === 'Escape') {
+            clearInput();
+        }
+    });
+</script>
+
+</html>

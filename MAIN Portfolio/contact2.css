@@ -1,0 +1,313 @@
+header nav ul li {
+    padding: 1rem;
+}
+
+header nav ul li:nth-child(4) {
+    background-color: #FFBE0B;
+
+
+}
+
+header nav ul li:nth-child(4) a {
+    color: black;
+}
+
+
+.sec1 {
+
+    display: flex;
+    gap: 1rem;
+
+    padding: 2rem .5rem;
+}
+
+
+.sec1-left {
+
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 50%;
+    padding: 2rem .5rem;
+    gap: 2rem;
+
+
+}
+
+.sec1-left input,
+textarea {
+    width: 50%;
+    padding: 1.2rem .2rem .4rem .4rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-weight: 300;
+    font-size: 1.3rem;
+    outline: none;
+    font-family: "Iceland", serif;
+}
+
+#btn-feed {
+
+    width: 50%;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    font-family: "Iceland", serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+#btn-feed:hover {
+   transform: scale(1.2);
+
+}
+
+.sec1-left input::placeholder,
+textarea::placeholder {
+
+    font-family: "Geo", sans-serif;
+    color: white;
+
+}
+
+
+.sec1-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+
+}
+
+
+
+
+
+
+
+.sec1-right h1 {
+    font-size: 4rem;
+    text-shadow: 5px 0px 2px #8ea2d4;
+
+}
+
+.sec1-right hr {
+
+    width: 13rem;
+}
+
+.sec1-right h1:nth-child(3) {
+
+    padding-left: 9rem;
+    margin-bottom: 3rem;
+    text-shadow: 5px 1px 3px #5154F5;
+
+}
+
+
+.footerC {
+    display: flex;
+    flex-direction: row;
+    gap: .1rem;
+    height: 5rem;
+    margin-top: 9rem;
+    position: relative;
+    border-top: 2px solid white;
+
+}
+
+.F-items {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    font-size: 1rem;
+    gap: .2rem;
+    margin-bottom: 1rem;
+    font-family: "Iceland", serif;
+}
+
+.F-items:nth-child(1) {
+    width: 30%;
+
+
+}
+
+.F-items:nth-child(2) {
+    width: 50%;
+
+
+
+}
+
+.F-items:nth-child(3) {
+    width: 20%;
+}
+
+@media (max-width:1100px) {
+
+    .sec1-left input,
+    textarea {
+        width: 80%;
+
+    }
+
+    #btn-feed {
+
+        width: 70%;
+
+
+
+    }
+}
+
+@media (max-width: 780px) {
+
+    .sec1-left input,
+    textarea {
+        width: 70%;
+        padding: 1.2rem .2rem .4rem .4rem;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid white;
+        color: white;
+        font-weight: 300;
+        font-size: 1rem;
+        outline: none;
+        font-family: "Geo", sans-serif;
+    }
+
+    #btn-feed {
+
+        width: 65%;
+        padding: 1rem 0rem;
+        font-size: 1rem;
+        font-family: "Geo", sans-serif;
+        font-weight: 400;
+    }
+
+
+
+}
+
+
+@media (max-width: 640px) {
+    .sec1 {
+        flex-direction: column-reverse;
+    }
+
+    .sec1-left {
+        width: 100%;
+        display: flex;
+        margin-top: 4rem;
+        justify-items: center;
+        align-items: flex-start;
+
+    }
+
+
+
+    .sec1-right {
+        width: 100%;
+        justify-content: center;
+        align-items: start;
+
+
+    }
+
+    .sec1-right h1:nth-child(3) {
+
+        padding-left: 0rem;
+        margin-bottom: 1rem;
+        text-shadow: 5px 1px 3px #5154F5;
+
+    }
+
+
+    .footerC {
+        display: flex;
+        flex-direction: column;
+        gap: .1rem;
+        height: 5rem;
+        margin-top: 9rem;
+        position: relative;
+        border-top: 2px solid white;
+
+    }
+
+
+    .F-items {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: flex-start;
+        font-size: 1rem;
+        gap: .1rem;
+        margin-bottom: 1rem;
+        font-family: "Iceland", serif;
+        margin: auto;
+        width: 100%;
+    }
+
+    .F-items:nth-child(1) {
+        width: 100%;
+        margin-bottom: 1rem;
+
+
+    }
+
+    .F-items:nth-child(2) {
+        width: 100%;
+        margin-bottom: 1rem;
+
+
+
+    }
+
+    .F-items:nth-child(3) {
+        width: 100%;
+    }
+
+
+
+}
+
+
+
+
+
+/* xs */
+@media (max-width: 475px) {
+
+
+    .sec1-left input,
+    textarea {
+        width: 80%;
+        padding: 1.2rem .2rem .4rem .4rem;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid white;
+        color: white;
+        font-weight: 300;
+        font-size: 1rem;
+        outline: none;
+        font-family: "Geo", sans-serif;
+    }
+
+    #btn-feed {
+
+        width: 70%;
+        padding: 1rem 0rem;
+        font-size: 1rem;
+        font-family: "Geo", sans-serif;
+        font-weight: 400;
+    }
+
+}

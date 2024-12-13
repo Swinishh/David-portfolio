@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Loop Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden; /* Prevents scrollbar appearance */
+        }
+
+        .img-container {
+            display: flex;
+            width: 300%; /* Wide enough for continuous scrolling */
+            animation: moveImages 10s linear infinite; /* Smooth scrolling animation */
+        }
+
+        .img {
+            display: flex;
+            flex: 0 0 50%; /* Two images visible at a time */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img img {
+            width: 100px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes moveImages {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="img-container">
+        <div class="img"><img src="img11.jpg" alt="Image 1"></div>
+        <div class="img"><img src="img22.webp" alt="Image 2"></div>
+        <div class="img"><img src="img33.png" alt="Image 3"></div>
+        <div class="img"><img src="img44.jpeg" alt="Image 4"></div>
+        <!-- Repeat to create infinite loop effect -->
+        <div class="img"><img src="img11.jpg" alt="Image 1"></div>
+        <div class="img"><img src="img22.webp" alt="Image 2"></div>
+    </div>
+</body>
+</html>
